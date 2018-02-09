@@ -1,5 +1,4 @@
 # encoding: utf-8
-# author: Takaaki Furukawa
 
 require 'hashie/mash'
 
