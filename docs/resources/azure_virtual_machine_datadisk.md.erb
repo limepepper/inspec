@@ -1,5 +1,5 @@
 ---
-title:  About the azure_virtual_machine_datadisk Resource
+title: About the azure_virtual_machine_datadisk Resource
 ---
 
 # azure\_virtual\_machine\_datadisk
@@ -21,9 +21,9 @@ The name of the resource group and machine are required to use this resource.
 where
 
 * `MyVm` is the name of the virtual machine as seen in Azure. (It is **not** the hostname of the machine)
-* `MyResourceGroup` is the name of the resouce group that the machine is in.
+* `MyResourceGroup` is the name of the resource group that the machine is in.
 * `property` is a resource property
-* `value` is the expected output fdrom the matcher
+* `value` is the expected output from the matcher
 
 The `count`, `have_data_disks` and `have_managed_disks` are catchall tests that give information about the virtual machine. The specific tests need to be used in conjunction with the `where` option as shown below.
 
@@ -31,7 +31,7 @@ The `count`, `have_data_disks` and `have_managed_disks` are catchall tests that 
 |-------------|---------------------------------------------------------------------------------------------------------------------|----------|-----------------------------------|
 | group_name: | Azure Resource Group to be tested                                                                                   | yes      | MyResourceGroup                   |
 | name:       | Name of the Azure resource to test                                                                                  | no       | MyVM                              |
-| apiversion: | API Version to use when interrogating the resource. If not set then the latest version for the resoure type is used | no       | 2017-10-9                         |
+| apiversion: | API Version to use when interrogating the resource. If not set then the latest version for the resource type is used | no       | 2017-10-9                         |
 
 These options can also be set using the environment variables:
 
@@ -94,7 +94,7 @@ Returns a boolean stating if the machine has Managed Disks for data disks.
 
     it { should have_managed_disks }
 
-**The next set of attributes require the `where` operation to be used on the describe.**
+**The next set of attributes require the `where` filter clause.**
 
 The following code shows an example of how to use the where clause.
 
@@ -105,13 +105,13 @@ The following code shows an example of how to use the where clause.
 
 The zero based index of the disk attached to the machine.
 
-Typically used in the `where` clause
+Typically used in the `where` clause.
 
 ### number
 
 The '1' based index of the disk attached to the machine.
 
-Typically used in the `where` clause as showm above.
+Typically used in the `where` clause.
 
 ### name
 
@@ -123,7 +123,7 @@ Returns an integer of size of this disk in GB.
 
 ### lun
 
-The disk number as reported by Azure. This is a zero based index value.
+The disk number as reported by Azure. Has a zero-based index value.
 
 ### caching
 
@@ -131,7 +131,7 @@ String stating the caching that has been set on the disk.
 
 ### create\_option
 
-How the disk was created. Typically for data disks this will be the string value 'Empty'.
+How the disk was created. Typically for data disks, this will be the string value 'Empty'.
 
 ### is\_managed\_disk?
 
@@ -139,17 +139,17 @@ Boolean stating if the disk is a managed disk or not. If it is not a managed dis
 
 ### vhd\_uri
 
-If this _not_ a managed disk then the `vhd_uri` will be the full URI to the disk in the storage account.
+If this _not_ a managed disk, then the `vhd_uri` will be the full URI to the disk in the storage account.
 
 ### storage\_account\_name
 
 If this is _not_ a managed disk this will be the storage account name in which the disk is stored.
 
-This derived from the `vhd_uri`.  
+This derived from the `vhd_uri`.
 
 ### storage\_account\_type
 
-If this is a managed disk this is the storage account type, e.g. `Standard_LRS`
+If this is a managed disk this is the storage account type, e.g. `Standard_LRS`.
 
 ### id
 
@@ -179,4 +179,3 @@ Use the `eq` matcher to test the equality of two values: `its('Port') { should e
 
 Using `its('Port') { should eq 22 }` will fail because `22` is not a string value! Use the `cmp` matcher for less restrictive value comparisons.
 
-**The following properties are ones that are applied to the virtual machine itself and not specfic disks**

@@ -63,9 +63,9 @@ example: MyResourceGroup
 
 Use this parameter to define the name of the Azure resource to test
 
-example:  MyVM
+example: MyVM
 
-If both `group_name` and `name` is set then `name` will take priority
+If both `group_name` and `name` is set then `name` takes priority
 
 These options can also be set using the environment variables:
 
@@ -102,7 +102,7 @@ Returns the name of the resource group.
 
 ### location
 
-Returns where in Azure the resource group is located.
+Returns the resource group's Azure location.
 
     its(location) { should cmp 'us-west' }
 
@@ -124,7 +124,7 @@ The provisioning state of the resource group.
 
 Returns the subscription ID which contains the resource group.
 
-This is derived from the `id`.
+Derived from the `id`.
 
     its(subscription_id) { should cmp '????' }
 
@@ -168,7 +168,7 @@ The number of Public IP Addresses in the resource group
 
 The number of managed disk images that are in the resource group.
 
-These are the items from which managed disks are created which are attached to machines. Generally the images are created from a base image or a custom image (e.g. Packer)
+Managed disks are created from disk images and then attached to the machines. Generally, the images are created from a base image or a custom image (e.g., Packer)
 
     its(managed_disk_image_count) { should eq 5 }
 
@@ -230,7 +230,7 @@ With these methods the following tests are possible
 
 ## Tags
 
-It is possible to test the tags that have been assigned to the resource. There are a number of properties that can be called to check that it has tags, that it has the correct number and that the correct ones are assigned.
+It is possible to test the tags that have been assigned to the resource. There are some properties for checking check that a resource has tags, that it has the correct number of tags, and that the correct tags are assigned.
 
 ### have\_tags
 
@@ -252,7 +252,7 @@ It is possible to check if a specific tag has been set on the resource.
 
 ### xxx\_tag
 
-To get the value of the tag, a number of preoprties have been created from the tags that are set.
+To get the value of the tag, some properties are created from the tags themselves.
 
 For example, if the following tag is set on a resource:
 

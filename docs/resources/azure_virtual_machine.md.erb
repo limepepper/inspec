@@ -4,11 +4,11 @@ title: About the azure_virtual_machine Resource
 
 # azure\_virtual\_machine
 
-Use the `azure_virtual_machine` InSpec audit resource to ensure that a Virtual Machine has been provisionned correctly.
+Use the `azure_virtual_machine` InSpec audit resource to ensure that a Virtual Machine has been provisioned correctly.
 
 ## Syntax
 
-The name of the machine and the resourece group are required as properties to the resource.
+The name of the machine and the resource group are required as properties to the resource.
 
     describe azure_virtual_machine(group_name: 'MyResourceGroup', name: 'MyVM') do
       its('property') { should eq 'value' }
@@ -16,9 +16,9 @@ The name of the machine and the resourece group are required as properties to th
 
 where
 
-* `MyVm` is the name of the virtual machine as seen in Azure. (It is **not** the hostname of the machine)
-* `MyResourceGroup` is the name of the resource group that the machine is in.
-* `property` is one of
+* `MyVm` is the name of the virtual machine as seen in Azure; it is **not** the hostname of the machine
+* `MyResourceGroup` is the name of the machine's resource group
+* `property` is one of the resource properties
 * `value` is the expected output from the matcher
 
 The options that can be passed to the resource are as follows.
@@ -27,7 +27,7 @@ The options that can be passed to the resource are as follows.
 |-------------|---------------------------------------------------------------------------------------------------------------------|----------|-----------------------------------|
 | group_name: | Azure Resource Group to be tested                                                                                   | yes      | MyResourceGroup                   |
 | name:       | Name of the Azure resource to test                                                                                  | no       | MyVM                              |
-| apiversion: | API Version to use when interrogating the resource. If not set then the latest version for the resoure type is used | no       | 2017-10-9                         |
+| apiversion: | API Version to use when interrogating the resource. If not set then the latest version for the resource type is used | no       | 2017-10-9                         |
 
 These options can also be set using the environment variables:
 
@@ -82,7 +82,7 @@ This InSpec audit resource has the following properties that can be tested:
 
 ### type
 
-THe Azure Resource type. For a virtual machine this will always return `Microsoft.Compute/virtualMachines`
+The Azure Resource type. For a virtual machine this will always return `Microsoft.Compute/virtualMachines`
 
 ### location
 
@@ -96,25 +96,25 @@ Name of the Virtual Machine in Azure. Be aware that this is not the computer nam
 
 ### publisher
 
-The publisher of the image from which this machine was built.
+The publisher of this machine's build image.
 
-This will be `nil` if the machine was created from a custom image.
+ `nil` if the machine was created from a custom image.
 
 ### offer
 
 The offer from the publisher of the build image.
 
-This will be `nil` if the machine was created from a custom image.
+`nil` if the machine was created from a custom image.
 
 ### sku
 
 The item from the publisher that was used to create the image.
 
-This will be `nil` if the machine was created from a custom image.
+`nil` if the machine was created from a custom image.
 
 ### os\_type
 
-Test that returns the classification in Azure of the operating system type. Ostensibly this will be either `Linux` or `Windows`.
+Test that returns the classification in Azure of the operating system type. Usually either `Linux` or `Windows`.
 
 ### os\_disk\_name
 
@@ -134,7 +134,7 @@ Returns the type of caching that has been set on the operating system disk.
 
 ### create\_option
 
-When the operating system disk is created, how it was created is set as an property. This property returns how the disk was created.
+When the operating system disk is created, how it was created is set as a property. This property returns how the disk was created.
 
 ### disk\_size\_gb
 

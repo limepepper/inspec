@@ -4,7 +4,7 @@ title: About the azure_generic_resource Resource
 
 # azure\_generic\_resource
 
-Use the `azure_generic_resource` InSpec audit resource to test any valid Azure Resource. This is very useful if you need to test something that we do not yet have a specific Inspec resource for.
+Use the `azure_generic_resource` InSpec audit resource to test any valid Azure Resource. This is very useful for testing resources that InSpec does not yet support.
 
 ## Syntax
 
@@ -15,8 +15,8 @@ Use the `azure_generic_resource` InSpec audit resource to test any valid Azure R
 where
 
 * `MyResourceGroup` is the name of the resource group that contains the Azure Resource to be validated
-* `MyResource` is the name of the resource that needs to be checked
-* `property` - This generic resource dynamically creates the properties on the fly based on the type of resource that has been targetted.
+* `MyResource` is the name of the resource to be checked
+* `property` - This generic resource dynamically creates the properties on the fly based on the type of resource that has been targeted.
 * `value` is the expected output from the chosen property
 
 The options that can be passed to the resource are as follows.
@@ -49,11 +49,11 @@ There are _normally_ three standard tests that can be performed on a resource.
 
 ## Properties
 
-The properties that can be tested are entirely dependent on the Azure Resource that is under scrutiny. That means the properties vary. The best way to see what is available please use the [Azure Resources Portal](https://resources.azure.com) to select the resource you are interested in and see what can be tested.
+The properties available for testing with the `azure_generic_resource` are dependent on the properties of the Azure Resource under scrutiny. As such, the properties will vary from resource to resource. To see what properties available, see the [Azure Resources Portal](https://resources.azure.com), select the relevant resource to view its testable properties.
 
-This resource allows you to test _any_ valid Azure Resource. The trade off for this is that the language to check each item is not as natural as it would be for a native Inspec resource.
+This resource allows you to test _any_ valid Azure Resource. The trade-off for this is that the language to check each item is not as natural as it would be for a native Inspec resource.
 
-Please see the integration tests for in depth examples of how this resource can be used.
+Please see the integration tests for in-depth examples of how this resource can be used.
 
  - [Generic External VM NIC](../test/integration/verify/controls/generic_external_vm_nic.rb)
  - [Generic External VM](../test/integration/verify/controls/generic_external_vm.rb)
@@ -70,5 +70,5 @@ Please see the integration tests for in depth examples of how this resource can 
 
  ## Matchers
 
-For a full list of available matchers please visit our [matchers page](https://www.inspec.io/docs/reference/matchers/).
+For a full list of available matchers, please visit our [matchers page](https://www.inspec.io/docs/reference/matchers/).
  
