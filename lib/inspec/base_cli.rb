@@ -98,7 +98,7 @@ module Inspec
       # this method will only be used for ad-hoc runners
       if !opts['format'].nil? && opts['reporter'].nil?
         warn '[DEPRECATED] The option --format is being is being deprecated and will be removed in inspec 3.0. Please use --reporter'
-        opts['reporter'] = Array(opts['format'])
+        opts['reporter'] = Array(opts['format']+ ":" + opts['output'])
         opts.delete('format')
       end
 
